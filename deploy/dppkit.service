@@ -1,0 +1,14 @@
+[Unit]
+Description=DPPKit EU Battery Passport Studio (Regulation (EU) 2023/1542 & DIN DKE SPEC 99100)
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/dppkit
+EnvironmentFile=/etc/dppkit/.env
+ExecStart=/usr/bin/node --no-warnings /opt/dppkit/server/index.mjs
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target
